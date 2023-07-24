@@ -1,5 +1,5 @@
 {
-    "name": "drupal/htmlmail",
+    "name": "digitalist-se/htmlmail",
     "description": "Enables HTML in system emails.",
     "type": "drupal-module",
     "license": "GPL-2.0-or-later",
