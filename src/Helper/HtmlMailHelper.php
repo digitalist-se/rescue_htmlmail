@@ -4,6 +4,7 @@ namespace Drupal\htmlmail\Helper;
 
 use Drupal\Component\Utility\Html;
 use Drupal;
+use Drupal\Core\Extension\ModuleExtensionList;
 
 /**
  * Class HtmlMailHelper.
@@ -30,7 +31,7 @@ class HtmlMailHelper {
     if (!isset($allowed)) {
       $allowed = ['' => t('No theme')];
       $themes = \Drupal::service('theme_handler')->listInfo();
-      uasort($themes, 'system_sort_modules_by_info_name');
+      uasort($themes, [ModuleExtensionList::class, 'sortByName']);
       foreach ($themes as $key => $value) {
         if ($value->status) {
           $allowed[$key] = Html::escape($value->info['name']);
